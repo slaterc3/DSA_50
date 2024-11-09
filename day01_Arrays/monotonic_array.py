@@ -12,9 +12,11 @@ monotonic, or false otherwise."""
 def monotonic_array(array):
     n = len(array)
     if n == 0: return True 
+    # to check first and last elements
     first = array[0]
     last = array[-1]
     
+    # if monotonic increasing
     if first < last:
         for k in range(n-1):
             if array[k] > array[k+1]:
@@ -23,21 +25,29 @@ def monotonic_array(array):
         for k in range(n-1):
             if array[k] != array[k+1]:
                 return False 
-    else:
+    else: # if monotonic decreasing
         for k in range(n-1):
             if array[k] < array[k+1]:
                 return False 
     
     return True 
 
-inc = [1,2,3,4,5]
-inc_broken = [1,2,-3,4,5]
-same = [2,2,2,2,2]
-same_broken = [2,2,3,2,2]
-dec = [5,4,3,2,1]
-dec_broken = [5,4,10,3,1]
+if __name__ == "__main__":
+    test_cases = [
+        ([1, 2, 3, 4, 5], True),
+        ([5, 4, 3, 2, 1], True),
+        ([3, 3, 3, 3], True),
+        ([1, 3, 2, 4, 5], False),
+        ([2, 2, 3, 4], True),
+        ([5, 4, 4, 3, 2], True),
+        ([1], True),
+        ([], True),
+        ([3, 3, 2, 1, 4], False)
+    ]
 
-lst = [inc, inc_broken, same, same_broken, dec, dec_broken]
-
-for x in lst:
-    print(f"{x} is monotonic?\n{monotonic_array(x)}")
+    for i, (array, expected) in enumerate(test_cases, 1):
+        result = monotonic_array(array)
+        print(f"Test case {i}: {array}")
+        print(f"Expected: {expected}, Got: {result}")
+        print(f"{'Passed' if result == expected else 'Failed'}\n")
+    
