@@ -28,24 +28,6 @@ def findTheWinner(n, k):
         del arr[remove]
         return helper(arr, remove)
     return helper(arr, 0)
-    
-# def josephus_problem1(n, k):
-#     # creating array
-#     arr = [x for x in range(1,n+1)]
-#     # if len(array) == 0:
-#     #     return 1
-#     # now the helper function
-#     def winner(arr, start):
-#         if len(arr) == 1:
-#             return arr[0]
-#         # the position of kill (remove)
-#         # starting position == 1
-#         kill_position = (start + k-1) % len(arr)
-#         del arr[kill_position] # reduces length by 1
-#         # recursive call
-#         return winner(arr, kill_position)
-    
-#     return winner(arr, 0)
 
 if __name__ == "__main__":
     test_cases = [
