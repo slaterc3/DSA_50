@@ -20,5 +20,5 @@ def toh(N, fromm, to, aux):
     helper(N, fromm, to, aux)
     return count == 2 ** N 
 
-x = toh(10, 1, 3, 2)
+x = toh(3, 'A', 'C', 'B')
 print(x)
