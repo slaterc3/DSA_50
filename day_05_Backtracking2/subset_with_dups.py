@@ -13,7 +13,7 @@ nums = [1,3,3]
 
 Output = [ [], [1], [3], [1,3], [3,3], [1,3,3] ]"""
 
-def subset_with_dups(nums):
+def subset_with_duplicates(nums):
     res = [] 
     def helper(idx, curr):
         if idx == len(nums):
