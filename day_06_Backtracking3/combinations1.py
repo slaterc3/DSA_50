@@ -17,7 +17,7 @@ def combinations(n, k):
             curr.append(j)
             helper(j+1, curr)
             curr.pop() 
-    helper(0, [])
+    helper(1, [])
     return res 
 
 if __name__ == "__main__":
