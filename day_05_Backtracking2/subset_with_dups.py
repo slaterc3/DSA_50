@@ -29,3 +29,7 @@ def subset_with_dups(nums):
         helper(idx+1, curr)
     helper(0, [])
     return res 
+
+# TODO: create test cases
+if __name__ == "__main__":
+    pass
