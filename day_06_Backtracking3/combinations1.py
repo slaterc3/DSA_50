@@ -22,4 +22,25 @@ def combinations(n, k):
     return res 
 
 if __name__ == "__main__":
-    print(combinations(4, 2))
+    # Test cases
+    test_cases = [
+        (4, 2, [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]),
+        (5, 3, [
+            [1, 2, 3], [1, 2, 4], [1, 2, 5],
+            [1, 3, 4], [1, 3, 5], [1, 4, 5],
+            [2, 3, 4], [2, 3, 5], [2, 4, 5],
+            [3, 4, 5]
+        ]),
+        (3, 2, [[1, 2], [1, 3], [2, 3]]),
+        (3, 3, [[1, 2, 3]]),
+        (4, 1, [[1], [2], [3], [4]]),
+        (1, 1, [[1]]),
+        (4, 4, [[1, 2, 3, 4]]),
+    ]
+
+    for i, (n, k, expected) in enumerate(test_cases, 1):
+        result = combinations(n, k)
+        print(f"Test case {i}: n = {n}, k = {k}")
+        print(f"Expected: {expected}")
+        print(f"Got: {result}")
+        print(f"{'Passed' if sorted(result) == sorted(expected) else 'Failed'}\n")
