@@ -14,7 +14,9 @@ nums = [1,3,3]
 Output = [ [], [1], [3], [1,3], [3,3], [1,3,3] ]"""
 
 def subset_with_duplicates(nums):
+    # nums.sort()
     res = [] 
+    
     def helper(idx, curr):
         if idx == len(nums):
             res.append(curr[:])
@@ -30,6 +32,20 @@ def subset_with_duplicates(nums):
     helper(0, [])
     return res 
 
-# TODO: create test cases
+# Test cases
 if __name__ == "__main__":
-    pass
+    test_cases = [
+        ([1, 2, 2], [[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]),
+        ([1, 2, 3], [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]),
+        ([2, 2, 2], [[], [2], [2, 2], [2, 2, 2]]),
+        ([], [[]]),
+        ([1], [[], [1]]),
+        ([1, 1, 1, 1], [[], [1], [1, 1], [1, 1, 1], [1, 1, 1, 1]])
+    ]
+    
+    for i, (nums, expected) in enumerate(test_cases, 1):
+        result = subset_with_duplicates(nums)
+        print(f"Test case {i}: nums = {nums}")
+        print(f"Expected: {sorted(expected)}")
+        print(f"Got: {sorted(result)}")
+        print(f"{'Passed' if sorted(result) == sorted(expected) else 'Failed'}\n")
