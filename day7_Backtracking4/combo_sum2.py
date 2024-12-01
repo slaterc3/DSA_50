@@ -33,3 +33,22 @@ def combos_sum2(candidates, target):
     return res 
 
 print(combos_sum2([2,3,4,3,5], 8))
+
+if __name__ == "__main__":
+    test_cases = [
+        ([10, 1, 2, 7, 6, 1, 5], 8, [[1, 1, 6], [1, 2, 5], [1, 7], [2, 6]]),
+        ([2, 5, 2, 1, 2], 5, [[1, 2, 2], [5]]),
+        ([1, 1, 1, 2, 2], 4, [[1, 1, 2], [2, 2]]),
+        ([3, 1, 3, 5, 1], 8, [[1, 1, 3, 3], [3, 5]]),
+        ([2, 3, 6, 7], 7, [[7]]),  # Single combination
+        ([2, 2, 2], 4, [[2, 2]]),  # Avoid duplicates
+        ([1, 2, 3], 10, []),  # Target too large
+        ([], 5, []),  # No candidates
+    ]
+
+    for i, (candidates, target, expected) in enumerate(test_cases, 1):
+        result = combos_sum2(candidates, target)
+        print(f"Test case {i}: candidates = {candidates}, target = {target}")
+        print(f"Expected: {sorted(expected)}")
+        print(f"Got: {sorted(result)}")
+        print(f"{'Passed' if sorted(result) == sorted(expected) else 'Failed'}\n")
