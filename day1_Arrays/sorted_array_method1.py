@@ -27,4 +27,4 @@ if __name__ == "__main__":
         print(f"Test case {i}: {input_array}")
         print(f"Expected: {expected_output}")
         print(f"Got: {result}")
-        print(f"{'Passed' if result == expected_output else 'Failed'}\n")
+        print(f"{'Passed' if result == expected_output else 'Failed'}\n{'*'*30}\n")
