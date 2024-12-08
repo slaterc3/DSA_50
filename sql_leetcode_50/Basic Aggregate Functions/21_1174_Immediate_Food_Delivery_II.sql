@@ -1,20 +1,54 @@
+-- ADVANCED
 SELECT 
-    ROUND(SUM(
-        CASE
-            WHEN d.order_date = d.customer_pref_delivery_date
-                THEN 1
-            ELSE 0 
-        END
-    ) * 100.0 / COUNT(*), 2) AS immediate_percentage
-FROM Delivery d
-LEFT JOIN (
-    SELECT customer_id, MIN(order_date) AS first_order
-    FROM Delivery
-    GROUP BY customer_id
-) f
-ON d.customer_id = f.customer_id
-WHERE d.order_date = f.first_order
+    ROUND(
+        SUM(
+            IF(order_date = customer_pref_delivery_date,1,0)) * 100.0
+                / COUNT(*), 2) AS immediate_percentage
+FROM
+(SELECT *,
+    DENSE_RANK() OVER(
+                    PARTITION BY customer_id
+                    ORDER BY order_date) AS first_order
+FROM Delivery) f
+WHERE first_order = 1
 ;
+
+
+
+-------------------------------------------
+-- INTERMEDIATE
+-- SELECT 
+--     ROUND(SUM(
+--         IF(order_date = customer_pref_delivery_date, 1, 0)
+--     ) * 100.0 / COUNT(*), 2) AS immediate_percentage
+-- FROM Delivery
+-- WHERE (customer_id, order_date) IN (SELECT 
+--     customer_id, 
+--     MIN(order_date) AS first_order
+-- FROM Delivery 
+-- -- WHERE order_date = MIN(order_date)
+-- GROUP BY customer_id)
+-- ;
+-----------------------------------
+
+-- BEGINNER
+-- SELECT 
+--     ROUND(SUM(
+--         CASE
+--             WHEN d.order_date = d.customer_pref_delivery_date
+--                 THEN 1
+--             ELSE 0 
+--         END
+--     ) * 100.0 / COUNT(*), 2) AS immediate_percentage
+-- FROM Delivery d
+-- LEFT JOIN (
+--     SELECT customer_id, MIN(order_date) AS first_order
+--     FROM Delivery
+--     GROUP BY customer_id
+-- ) f
+-- ON d.customer_id = f.customer_id
+-- WHERE d.order_date = f.first_order
+-- ;
 
 
 -- Table: Delivery
