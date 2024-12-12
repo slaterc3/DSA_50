@@ -6,3 +6,5 @@ def fib_hash(n, ht={0:0, 1:1}):
         return ht[n]
     
 print(fib_hash(5))
+
+print(fib_hash(8))
