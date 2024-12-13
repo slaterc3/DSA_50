@@ -1,16 +1,31 @@
+
 SELECT
+    e.employee_id, e.department_id
+FROM Employee e
+LEFT JOIN
+(SELECT
     employee_id,
-    department_id
+    COUNT(department_id) AS num_dept
 FROM Employee
-GROUP BY employee_id
-HAVING COUNT(*) = 1
-UNION
-SELECT 
-    employee_id,
-    MIN(department_id) AS department_id
-FROM Employee
-WHERE primary_flag = 'Y'
-GROUP BY employee_id;
+GROUP BY employee_id) T
+    ON e.employee_id = T.employee_id
+WHERE (num_dept > 1 AND primary_flag='Y')
+-- OR (num_dept = 1 AND primary_flag='N');
+
+
+-- SELECT
+--     employee_id,
+--     department_id
+-- FROM Employee
+-- GROUP BY employee_id
+-- HAVING COUNT(*) = 1
+-- UNION
+-- SELECT 
+--     employee_id,
+--     MIN(department_id) AS department_id
+-- FROM Employee
+-- WHERE primary_flag = 'Y'
+-- GROUP BY employee_id;
 
 
 -- Table: Employee
