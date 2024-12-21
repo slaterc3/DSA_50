@@ -1,20 +1,33 @@
 def insertion_sort(arr):
     # Your code goes here
-    swap = False 
+    # improved
     n = len(arr)
     for i in range(1, n):
-        curr = i 
-        current_value = arr[curr]
-        prev = i - 1 
-        prev_value = arr[prev]
-        while arr[curr] < arr[prev] and prev >= 0:
-            # if arr[curr] < arr[prev]:
-            arr[curr], arr[prev] = arr[prev], arr[curr]
-            curr -= 1 
-            prev -= 1 
-            # else:
-            #     swap = False 
+        curr = arr[i]
+        j = i - 1 
+        while j >= 0:
+            if arr[j] < curr:
+                break 
+            else:
+                arr[j+1] = arr[j] 
+                j -= 1 
+        arr[j+1] = curr 
     return arr 
+    # swap = False 
+    # n = len(arr)
+    # for i in range(1, n):
+    #     curr = i 
+    #     current_value = arr[curr]
+    #     prev = i - 1 
+    #     prev_value = arr[prev]
+    #     while arr[curr] < arr[prev] and prev >= 0:
+    #         # if arr[curr] < arr[prev]:
+    #         arr[curr], arr[prev] = arr[prev], arr[curr]
+    #         curr -= 1 
+    #         prev -= 1 
+    #         # else:
+    #         #     swap = False 
+    # return arr 
     
 print(insertion_sort([12,11,13,5,6]))
 
