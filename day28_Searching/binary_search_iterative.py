@@ -9,9 +9,9 @@ def binary_search(arr, target):
         if arr[middle] == target:
             return middle 
         elif arr[middle] > target:
-            start = middle + 1 
+            right = middle - 1 
         else:
-            end = middle - 1 
+            left = middle + 1 
     return -1 
 
 print(binary_search([1,2,3,4,5,6,7,8,9], 9))
