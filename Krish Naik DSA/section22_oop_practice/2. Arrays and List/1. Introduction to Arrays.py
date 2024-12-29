@@ -1,5 +1,7 @@
-l1 = []
+# import sys 
 
+l1 = []
+# sys.getsizeof(l1)
 l1.append(1)
 l1.append(1.5)
 l1.append('python')

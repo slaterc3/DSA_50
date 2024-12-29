@@ -7,9 +7,9 @@ class CustomList:
         self.size = 0
         self.array = self.__create_array(self.capacity)
 
-    def __create_array(self,capacitiy):
+    def __create_array(self,capacity):
         # Create a new referential array with given capacity
-        return (capacitiy*ctypes.py_object)()
+        return (capacity*ctypes.py_object)()
     
     def __resize(self,new_capacity):
         new_array = self.__create_array(new_capacity)
