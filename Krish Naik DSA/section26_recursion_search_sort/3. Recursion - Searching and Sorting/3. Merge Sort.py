@@ -42,13 +42,13 @@ def Merge(l1,s,m,e):
 
    return
 
-l2 = [6,5,12,10,9,1]
-l2 = [5,6,12,1,9,10]
+l2 = [6, 5, 12, 10, 9, 2]
+l2 = [5, 6, 12, 2, 9, 10]
 
 Merge(l2,0,2,5)
 print(l2)
 
-
+# helper function can be placed inside other func
 def MergeSortHelper(l1,s,e):
    if(s>=e):
       return 
