@@ -47,6 +47,7 @@ def merge_sort(arr):
     
 
 print(merge_sort([1,3,2,4]))
+print(merge_sort([5,4,3,2,1]))
 
 
 
