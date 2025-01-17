@@ -4,14 +4,14 @@ def partitionFunction(l1,s,e):
     pivot = l1[e]
 
     i = s
-    rightPosition = s
+    right_pos = s
 
     while(i <= e-1):
         if(l1[i]<pivot):
-            rightPosition +=1
+            right_pos +=1
         i+=1 
-    l1[rightPosition] , l1[e] = l1[e] , l1[rightPosition]
-    pivotIndex = rightPosition
+    l1[right_pos] , l1[e] = l1[e] , l1[right_pos]
+    pivotIndex = right_pos
     # Now make sure that everything smaller than pivot to left and greater to right
     start = s
     end = e
