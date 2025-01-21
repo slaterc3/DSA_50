@@ -13,4 +13,5 @@ def remove_character(s1,ch):
 
 s1 = "abczz"
 ans = remove_character(s1,'z')
+ans = remove_character(s1, 'c')
 print(ans)
