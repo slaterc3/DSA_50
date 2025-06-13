@@ -1,4 +1,4 @@
-from stack import Stack # Assuming your Stack class is in a file named stack.py
+from codecademy_dsa.Stack.stack import Stack # Assuming your Stack class is in a file named stack.py
 
 print("\nLet's play Towers of Hanoi!!")
 
