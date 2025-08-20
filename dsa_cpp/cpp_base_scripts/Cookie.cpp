@@ -29,5 +29,10 @@ int main() {
     cout << "C1: " << cookieOne->getColor() << endl;
     cout << "C2: " << cookieTwo->getColor() << endl;
 
+    delete cookieOne;
+    delete cookieTwo;
+
+    return 0;
+
 }
 
