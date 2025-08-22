@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 
@@ -15,11 +14,6 @@ class Node {
             next = nullptr;
         }
 };
-	//                        //
-	//                        //
-	//                        //
-	////////////////////////////
-
 
 class LinkedList {
     private:
@@ -28,10 +22,6 @@ class LinkedList {
         Node* head;
         Node* tail;
         int length;
-		//                              //
-		//                              //
-		//                              //
-		//////////////////////////////////
 
     public:
 		// CREATE LL CONSTRUCTOR HERE //
@@ -42,10 +32,6 @@ class LinkedList {
             tail = newNode;
             length = 1;
         }
-		//                            //
-		//                            //
-		//                            //
-		////////////////////////////////
 
         ~LinkedList() {
             Node* temp = head;
@@ -58,7 +44,7 @@ class LinkedList {
 
         void printList() {
             Node* temp = head;
-            while (temp != nullptr) {
+            while (temp) { //(temp != nullptr)
                 cout << temp->value << endl;
                 temp = temp->next;
             }
