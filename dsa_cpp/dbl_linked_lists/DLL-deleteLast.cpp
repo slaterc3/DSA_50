@@ -93,6 +93,8 @@ class DoublyLinkedList {
         void deleteLast(){
             if (length == 0) return;
             
+            Node* temp = tail;
+            
             if (length == 1) {
                 head = nullptr;
                 tail = nullptr;
@@ -101,6 +103,8 @@ class DoublyLinkedList {
                 tail = tail->prev;
                 tail->next = nullptr;
             }
+            delete temp;
+            
             length--;
             
             
