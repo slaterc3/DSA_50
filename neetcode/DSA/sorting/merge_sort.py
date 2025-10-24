@@ -1,8 +1,11 @@
 # Definition for a pair.
-# class Pair:
-#     def __init__(self, key: int, value: str):
-#         self.key = key
-#         self.value = value
+class Pair:
+    def __init__(self, key: int, value: str):
+        self.key = key
+        self.value = value
+from typing import List
+
+
 class Solution:
     def mergeSort(self, pairs: List[Pair]) -> List[Pair]:
         if len(pairs) <= 1:
